@@ -31,7 +31,7 @@ case $i in
     ;;
   "Connect Database" )
      echo "welcome to connect "
-    . connectDB.sh
+    . ConnectDatabase.sh
     break
     ;;
     "Drop Database" )

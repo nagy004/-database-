@@ -82,3 +82,6 @@ fi
 else echo " this DB ( $dbnamec ) is not exist "
 break
 fi
+else echo " please enter valid name  "
+break
+fi
