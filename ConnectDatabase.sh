@@ -13,8 +13,8 @@ regex='^[0-9a-zA-Z]+$'
 if [[ $x==$regex ]]; then
 if [[ -d $x ]];
   then  cd ~/database/$x
-  fno=($(ls -F | grep "*" | wc -l))
-  ls -F | grep "*" | wc -l
+  fno=($(ls -F | wc -l))
+  #ls -F | grep "*" | wc -l
   
 #if no.files =0---------
 
@@ -40,7 +40,7 @@ else
 clear
 echo "this is the DB ($x) content "
 
-ls -F | grep "*"
+ls -F 
 echo "what do you want to do "
 
 #this is the second menu---------
@@ -49,15 +49,14 @@ do
 case $y in
 
  "Create Table" )
-   echo "welcome to creat table " 
+   #echo "welcome to creat table " 
     . CreatTable.sh
       
     break
     ;;
 
 "List Table" )
-   echo "welcome to list table "
-    # . listDatabase.sh
+  . ListTable.sh
     break
     ;;
     
@@ -67,13 +66,14 @@ case $y in
     break
     ;;
     "Select From Table" )
-      echo "welcome to insert table " 
-   # . DropDatabase.sh
+      echo "welcome to select table " 
+  . 1.sh
       
     break
     ;;
-"Select From Table" )
+"Sdet From Table" )
 echo "welcome to select table " 
+ #. Select From Table
 break
     ;;
     "Delete From Table" )
@@ -96,8 +96,10 @@ done
 #---------------------------------
 fi
 else echo "this DB is not exit "
+break
                        fi
                                
             else
             echo "not valid"
+            break
             fi

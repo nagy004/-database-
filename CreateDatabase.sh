@@ -1,3 +1,4 @@
+
 #!/usr/bin/bash
 #echo "hello nagy"
 regex='^[0-9a-zA-Z]+$'

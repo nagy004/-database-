@@ -11,7 +11,7 @@ regex='^[0-9a-zA-Z]+$'
 if [[ $dbnamec==$regex ]]; then
 if [[ -d $x ]];
   then  cd ~/database/$x
-  fno=($(ls -F | grep "*" | wc -l))
+  fno=($(ls -F | wc -l))
   #ls -F | grep "*" | wc -l
   
 #if no.files =0---------
