@@ -1,16 +1,23 @@
 #!/usr/bin/bash
+shopt -s extglob
 #echo "hello ahmed nagy"
 
 #. functions.sh
+
 if [ ! -d $HOME/database ];
 then
 echo "i will create data base"
 mkdir $HOME/database 
+cd $HOME/database
 else 
-echo " now you are connected to data base"
+clear
+echo "|==================================================|"
+echo "       now you are connected to DBMS "
+echo "|==================================================|"
 cd $HOME/database
 fi
-PS3="Enter your choice :"
+
+PS3="Enter the number of your choice :"
 
  function menu(){
 select i in "Create Database" "List Database" "Connect Database" "Drop Database" "Exit" 
@@ -30,8 +37,8 @@ case $i in
     break
     ;;
   "Connect Database" )
-     echo "welcome to connect "
-    . connectDB.sh
+     
+    . ConnectDatabase.sh
     break
     ;;
     "Drop Database" )
@@ -44,6 +51,7 @@ case $i in
 
     exit ;;
   * )
+  clear
     echo " invalid choice , try again " 
     menu
     ;;

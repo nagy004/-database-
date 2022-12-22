@@ -11,6 +11,10 @@ if [[ $dbnamed==$regex ]]; then
   clear
   echo " DB ( $dbnamed ) is deleted "
   
+    echo "|==================================================|"
+  echo "            this is the main menu "
+  echo "|==================================================|"
+  
   menu
   else 
   echo "This database is not exit"
@@ -25,20 +29,25 @@ case $x in
 
   "exit" )
   clear 
-  echo " this is the main menu "
+  echo "|==================================================|"
+  echo "            this is the main menu "
+  echo "|==================================================|"
   menu
     ;;
 
   *)
     clear
-    echo " you choosed wrong this is the main menu"
+    echo "|==================================================|"
+    echo "    you choosed wrong this is the main menu"
+    echo "|==================================================|"
     menu
     ;;
 esac
     done
   fi
 
-else echo " kindly enter the right DB name  "
+else echo " Kindly enter the right DB name  "
+menu
    
 fi
 }
