@@ -1,10 +1,12 @@
 #!/usr/bin/bash
-#echo "hello nagy"
-regex='^[0-9a-zA-Z]+$'
+shopt -s extglob
+#$intiger_regex     =~ ^[0-9]+$
+#all_regex          =~ ^[0-9a-zA-Z]+$
+#$charctar_regex    =~ ^[a-zA-Z]+$
 function drop(){
 clear
 read -p "enter DB name that U want to drop :" dbnamed
-if [[ $dbnamed==$regex ]]; then
+if [[ $dbnamed =~ ^[0-9a-zA-Z]+$ ]]; then
   if [[ -d $dbnamed ]];
   then 
   rm -r ~/database/$dbnamed

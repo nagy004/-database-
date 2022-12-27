@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 shopt -s extglob
-#echo "hello ahmed nagy"
+#$intiger_regex     =~ ^[0-9]+$
+#all_regex          =~ ^[0-9a-zA-Z]+$
+#$charctar_regex    =~ ^[a-zA-Z]+$
 
 #. functions.sh
 

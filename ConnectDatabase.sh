@@ -1,7 +1,9 @@
 
 #!/usr/bin/bash
-#echo "hello nagy"
-
+shopt -s extglob
+#$intiger_regex     =~ ^[0-9]+$
+#all_regex          =~ ^[0-9a-zA-Z]+$
+#$charctar_regex    =~ ^[a-zA-Z]+$
 cd ~/database
 
 #fno=($(ls -F | grep "*" | wc -l))
@@ -9,8 +11,8 @@ cd ~/database
 #        vsr=($(ls -F | grep / | wc -l))
 
 read -p "enter the data base name that U want to connect :" x
-regex='^[0-9a-zA-Z]+$'
-if [[ $x==$regex ]]; then
+#regex =~ ^[0-9a-zA-Z]+$
+if [[ $x =~ ^[0-9a-zA-Z]+$ ]]; then
 if [[ -d $x ]];
   then  cd ~/database/$x
   fno=($(ls -F | wc -l))
@@ -21,13 +23,17 @@ if [[ -d $x ]];
 if [[ $fno = 0 ]]; then
 clear
  echo "this DB is empty"
- select h in "Create Table"
+ select h in "Create Table" "Exit"
           do 
              case $h in
 
                "Create Table" )
-                 echo "welcome to creat table " 
-                 #. CreateTable.sh
+     . CreatTable.sh 
+                     ;;
+                        "Exit" )
+                        clear
+                        echo "this is the main menu"
+                         menu
                      ;;
                     * )
                         echo "wrong choice " 
@@ -44,7 +50,7 @@ ls -F
 echo "what do you want to do "
 
 #this is the second menu---------
-  select y in "Create Table" "List Table" "Insert into Table" "Select From Table" "Delete From Table" "update Table" 
+  select y in "Create Table" "List Table" "Insert into Table" "Select From Table" "Delete From Table" "update Table" "Exit"
 do 
 case $y in
 
@@ -62,12 +68,12 @@ case $y in
     
   "Insert into Table" )
      echo "welcome to insert table "
-    #. ./ConnectDatabase.sh
+    . InsertIntoTable.sh
     break
     ;;
     "Select From Table" )
       echo "welcome to select table " 
-  . 1.sh
+  . 1seltable.sh
       
     break
     ;;
@@ -85,6 +91,13 @@ break
 echo "welcome to update Table" 
 break
     ;;
+    
+    "Exit" )
+    clear
+echo "this is the main menu" 
+menu
+    ;;
+    
   * )
     echo " invalid choice , try again " 
     break
@@ -95,11 +108,15 @@ done
 
 #---------------------------------
 fi
+clear
 else echo "this DB is not exit "
-break
+echo " this is the main menu "
+menu
                        fi
                                
             else
-            echo "not valid"
-            break
+            clear
+            echo "not valid input"
+            echo " this is the main menu "
+            menu
             fi
