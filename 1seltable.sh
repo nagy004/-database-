@@ -87,7 +87,7 @@ if [[ $con2 =~ ^[0-9a-zA-Z]+$ ]]; then
 clear
 echo "this is your selection result "
 cat ~/database/$x/$xyz | grep -w $con1 | grep -w $con2
-
+break
  else 
 echo "invailid input for the condition "
 break
@@ -114,12 +114,12 @@ fi
       ;;
       "three" )
         #if he choose 3 conditions -----------------------------------------------------
- read -p "enter the column name for first condition  :" v
+ read -p "enter the column value for first condition  :" v
   if [[ $v =~ ^[0-9a-zA-Z]+$ ]]; then
   
-       read -p "enter the column name for the second conditioin :" g
+       read -p "enter the column value for the second conditioin :" g
        if [[ $g =~ ^[0-9a-zA-Z]+$ ]]; then
-            read -p "enter the column name for the third conditioin :" m
+            read -p "enter the column value for the third conditioin :" m
              if [[ $m =~ ^[0-9a-zA-Z]+$ ]]; then
     read -p "enter the "$v " condition :" co1
 

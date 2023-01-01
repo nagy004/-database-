@@ -69,7 +69,7 @@ case $y in
   "Insert into Table" )
      echo "welcome to insert table "
     . InsertIntoTable.sh
-    break
+    
     ;;
     "Select From Table" )
       echo "welcome to select table " 

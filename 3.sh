@@ -3,47 +3,22 @@ shopt -s extglob
 #$intiger_regex     =~ ^[0-9]+$
 #all_regex          =~ ^[0-9a-zA-Z]+$
 #$charctar_regex    =~ ^[a-zA-Z]+$
-#cnm=($(awk '/rawan/ {print}' ~/database/1/users))
+#cnm=($(head -"$2" "$1" ~/database/$x/$Tname | awk -F':' '{ print $i }'))
 
+cd ~/database/1
+read -p "enter the Table name that U want to list :" xy
 
-
-if [[ $tname =~ ^[0-9a-zA-Z]+$ ]]; then
-
-
-  #if [[ -f $tname ]]; then 
-
-
-read -p "enter the first column value ( this is the PK column ) :" cv
-if [[ $cv =~ ^[0-9a-zA-Z]+$ ]]; then
-pk_check=($(awk -F ":" '{if (NR==2 || NR>3) print $1 }' ~/database/1/users | grep -w $cv | wc -l))
-echo " " >> ~/database/1/users
-if [[ $pk_check == 0 ]]; then 
-echo -n "  $cv  : " >> ~/database/1/users
-   for (( i = 2; i < no_of_col ; i++ )); do
-		     read -p "Enter the( $i ) columne Name : " Cname
-
-		     echo -n "$Cname : " >> ~/database/1/users
-		     
-		       done
-echo "done "
-
+if [[ $xy =~ ^[0-9a-zA-Z]+$ ]]; then
+   if [[ -f $xy ]]; then 
+   clear
+   echo "this is the Table ( $xy ) Data "
+    awk '{if (NR==2 || NR>3) print $0 }' ~/database/$x/$xy
+     else 
+     
+     echo "this Table name ( $xy ) is not exist "
+     
+     fi
 else
-echo "This column is  (Primary Key ) so you cannot enter the same value twice "
-fi
-
-#else
-#echo "This Table "$tname" is not exist "
-#fi
-else
-echo "invalid input  "
-fi
-
-else
-echo "invalid input  "
-fi
-
-
-no_of_col=($(head -n 1 ~/database/1/users | awk -F ":" '{print NF}'))
-
-		     
-                    
+  echo " invalid choice , try again " 
+    menu
+ fi 
